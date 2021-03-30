@@ -3,6 +3,7 @@ package com.Wchallenge.services.impl;
 import com.Wchallenge.clients.JSONPlaceHolderClient;
 import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.services.AlbumService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Service
 public class AlbumServiceImpl implements AlbumService {
 
+    @Autowired
     private JSONPlaceHolderClient jsonPlaceHolderClient;
 
     @Override
