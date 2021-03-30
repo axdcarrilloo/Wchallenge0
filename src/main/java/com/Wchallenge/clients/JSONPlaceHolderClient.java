@@ -1,5 +1,6 @@
 package com.Wchallenge.clients;
 
+import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.domain.dtos.PhotoDto;
 import com.Wchallenge.domain.dtos.UserDto;
 import com.Wchallenge.utils.Route;
@@ -11,6 +12,15 @@ import java.util.List;
 
 @FeignClient(name = "${feign.client.jsonplaceholder.name}", url = "${feign.client.jsonplaceholder.url}")
 public interface JSONPlaceHolderClient {
+
+    @GetMapping(value = Route.USERS_CLIENT + Route.GETBY_ID_CLIENT + Route.AlBUMS_CLIENT)
+    List<AlbumDto> findAlbumsByIdUser(@PathVariable("userId") Long userId);
+
+    @GetMapping(value = Route.AlBUMS_CLIENT + Route.GETBY_ID_CLIENT)
+    AlbumDto findAlbumById(@PathVariable("id") Long id);
+
+    @GetMapping(value = Route.AlBUMS_CLIENT)
+    List<AlbumDto> findAllAlbums();
 
     @GetMapping(value = Route.PHOTOS_CLIENT + Route.GETBY_ID_CLIENT)
     PhotoDto findPhotoById(@PathVariable("id") Long id);

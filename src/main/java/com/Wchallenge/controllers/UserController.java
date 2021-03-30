@@ -1,5 +1,6 @@
 package com.Wchallenge.controllers;
 
+import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.domain.dtos.UserDto;
 import com.Wchallenge.services.UserService;
 import com.Wchallenge.utils.Route;
@@ -20,6 +21,10 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    public ResponseEntity<List<AlbumDto>> getALbumsByIdUser(@PathVariable Long userId){
+        return new ResponseEntity<List<AlbumDto>>(userService.getAlbumsByIdUser(userId), HttpStatus.OK);
+    }
 
     @RequestMapping(value = Route.GETBY_ID)
     public ResponseEntity<UserDto> getUserById(@PathVariable Long id){

@@ -1,6 +1,7 @@
 package com.Wchallenge.services.impl;
 
 import com.Wchallenge.clients.JSONPlaceHolderClient;
+import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.domain.dtos.UserDto;
 import com.Wchallenge.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,11 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JSONPlaceHolderClient jsonPlaceHolderClient;
+
+    @Override
+    public List<AlbumDto> getAlbumsByIdUser(Long userId){
+        return jsonPlaceHolderClient.findAlbumsByIdUser(userId);
+    }
 
     @Override
     public List<UserDto> getAllUsers() {

@@ -12,6 +12,8 @@ public class Route {
 //    Client
     public static final String USERS_CLIENT = "/users";
     public static final String PHOTOS_CLIENT = "/photos";
+    public static final String AlBUMS_CLIENT = "/albums";
     public static final String GETBY_ID_CLIENT = "/{id}";
+    public static final String GETBY_IDUSER_CLIENT = "/{userId}";
 
 }
