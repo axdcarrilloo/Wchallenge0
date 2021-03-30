@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SharedAlbumRepository extends JpaRepository<SharedAlbum, Long> {
+
+    SharedAlbum findByUserIdAndAlbumId(Long userId, Long albumId);
+
 }

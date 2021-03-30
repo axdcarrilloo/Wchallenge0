@@ -5,6 +5,8 @@ import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.domain.dtos.PhotoDto;
 import com.Wchallenge.domain.dtos.UserDto;
 import com.Wchallenge.services.UserService;
+import feign.FeignException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -46,6 +49,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto getUserById(Long id) {
-        return jsonPlaceHolderClient.findUserById(id);
+        UserDto userDto = null;
+        try {
+            userDto = jsonPlaceHolderClient.findUserById(id);
+        }catch (FeignException exFeign){
+            log.info("SharedAlbumServiceImpl.java - getSharedAlbumByAlbumAndUser() " +
+                    "-> El cliente JSONPlaceHolder devolvio el usuario vacio");
+            userDto = UserDto.builder().id(0L).build();
+        }
+        return userDto;
     }
 }
