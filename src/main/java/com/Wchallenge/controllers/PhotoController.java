@@ -18,6 +18,7 @@ public class PhotoController {
     @Autowired
     private PhotoService photoService;
 
+    @RequestMapping(value = Route.GETALL)
     public ResponseEntity<List<PhotoDto>> getAllPhotos(){
         return new ResponseEntity<List<PhotoDto>>(photoService.getAllPhotos(), HttpStatus.OK);
     }

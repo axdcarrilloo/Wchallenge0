@@ -13,7 +13,10 @@ import java.util.List;
 @FeignClient(name = "${feign.client.jsonplaceholder.name}", url = "${feign.client.jsonplaceholder.url}")
 public interface JSONPlaceHolderClient {
 
-    @GetMapping(value = Route.USERS_CLIENT + Route.GETBY_ID_CLIENT + Route.AlBUMS_CLIENT)
+    @GetMapping(value = Route.AlBUMS_CLIENT + Route.GETBY_IDALBUM_CLIENT + Route.PHOTOS_CLIENT)
+    List<PhotoDto> findPhotoByIdAlbum(@PathVariable("albumId") Long albumId);
+
+    @GetMapping(value = Route.USERS_CLIENT + Route.GETBY_IDUSER_CLIENT + Route.AlBUMS_CLIENT)
     List<AlbumDto> findAlbumsByIdUser(@PathVariable("userId") Long userId);
 
     @GetMapping(value = Route.AlBUMS_CLIENT + Route.GETBY_ID_CLIENT)

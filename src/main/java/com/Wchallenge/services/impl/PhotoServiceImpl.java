@@ -1,5 +1,6 @@
 package com.Wchallenge.services.impl;
 
+import com.Wchallenge.clients.JSONPlaceHolderClient;
 import com.Wchallenge.domain.dtos.PhotoDto;
 import com.Wchallenge.services.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +12,15 @@ import java.util.List;
 public class PhotoServiceImpl implements PhotoService {
 
     @Autowired
-    private PhotoService photoService;
+    private JSONPlaceHolderClient jsonPlaceHolderClient;
 
     @Override
     public PhotoDto getPhotoById(Long id) {
-        return photoService.getPhotoById(id);
+        return jsonPlaceHolderClient.findPhotoById(id);
     }
 
     @Override
     public List<PhotoDto> getAllPhotos() {
-        return photoService.getAllPhotos();
+        return jsonPlaceHolderClient.findAllPhotos();
     }
 }
