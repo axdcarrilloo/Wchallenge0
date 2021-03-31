@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface SharedAlbumRepository extends JpaRepository<SharedAlbum, Long> {
 
-    List<SharedAlbum> findByReadingAndWriting(Boolean reading, Boolean writing);
+    List<SharedAlbum> findByAlbumIdAndReadingAndWriting(Long albumId, Boolean reading, Boolean writing);
 
     @Modifying
     @Transactional

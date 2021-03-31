@@ -14,7 +14,7 @@ public class Route {
     public static final String ALBUMS_BYIDUSER = "/albumsByIdUser/{userId}";
     public static final String REGISTER = "/register";
     public static final String UPDATE_PERMISSIONS = "/updatePermissions/{id}";
-    public static final String GETSHARED_ALBUMPERMISSIONS = "/sharedAlbumPermissions";
+    public static final String GETSHARED_ALBUMPERMISSIONS = "/sharedAlbumPermissions/{albumId}";
 
 
 //    Client

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface SharedAlbumService {
 
-    List<SharedAlbum> getSharedAlbumByReadingAndWriting(SharedAlbumPermissionsDto sharedAlbumPermissionsDto);
+    List<SharedAlbum> getSharedAlbumByReadingAndWriting(Long albumId, SharedAlbumPermissionsDto sharedAlbumPermissionsDto);
 
     Long updateSharedAlbumPermissions(Long id, SharedAlbumPermissionsDto sharedAlbumPermissionsDto);
 

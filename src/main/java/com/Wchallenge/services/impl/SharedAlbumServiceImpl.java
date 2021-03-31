@@ -31,8 +31,8 @@ public class SharedAlbumServiceImpl implements SharedAlbumService {
     private UserService userService;
 
     @Override
-    public List<SharedAlbum> getSharedAlbumByReadingAndWriting(SharedAlbumPermissionsDto sharedAlbumPermissionsDto){
-        return sharedAlbumRepository.findByReadingAndWriting(sharedAlbumPermissionsDto.getReading(),
+    public List<SharedAlbum> getSharedAlbumByReadingAndWriting(Long albumId, SharedAlbumPermissionsDto sharedAlbumPermissionsDto){
+        return sharedAlbumRepository.findByAlbumIdAndReadingAndWriting(albumId, sharedAlbumPermissionsDto.getReading(),
                 sharedAlbumPermissionsDto.getWriting());
     }
 

@@ -27,9 +27,10 @@ public class SharedAlbumController {
     private UserService userService;
 
     @PostMapping(value = Route.GETSHARED_ALBUMPERMISSIONS)
-    public ResponseEntity<List<UserDto>> getSharedAlbumByReadingAndWriting(@RequestBody SharedAlbumPermissionsDto sharedAlbumPermissionsDto){
+    public ResponseEntity<List<UserDto>> getSharedAlbumByReadingAndWriting(@PathVariable Long albumId,
+                                                                           @RequestBody SharedAlbumPermissionsDto sharedAlbumPermissionsDto){
         List<UserDto> userDtoList = userService.getUsersByReadingAndWriting(
-                sharedAlbumService.getSharedAlbumByReadingAndWriting(sharedAlbumPermissionsDto));
+                sharedAlbumService.getSharedAlbumByReadingAndWriting(albumId, sharedAlbumPermissionsDto));
         return new ResponseEntity<List<UserDto>>(userDtoList, HttpStatus.OK);
     }
 
