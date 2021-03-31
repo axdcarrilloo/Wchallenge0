@@ -15,7 +15,6 @@ public class Route {
     public static final String REGISTER = "/register";
     public static final String UPDATE_PERMISSIONS = "/updatePermissions/{id}";
 
-
 //    Client
     public static final String USERS_CLIENT = "/users";
     public static final String PHOTOS_CLIENT = "/photos";

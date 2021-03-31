@@ -8,8 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface SharedAlbumRepository extends JpaRepository<SharedAlbum, Long> {
+
+    List<SharedAlbum> findByReadingAndWriting(Boolean reading, Boolean writing);
 
     @Modifying
     @Transactional
