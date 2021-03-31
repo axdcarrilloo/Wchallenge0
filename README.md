@@ -25,7 +25,7 @@
          "reading": true,
         "writing": false
       }
- 10. Consultar usuarios por permiso en album - POST - http://localhost:9291/Wchallenge/sharedAlbum/sharedAlbumPermissions
+ 10. Consultar usuarios por permiso en album - POST - http://localhost:9291/Wchallenge/sharedAlbum/sharedAlbumPermissions/1
      Body:
           {
              "reading": true,
