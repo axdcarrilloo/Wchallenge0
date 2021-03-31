@@ -4,11 +4,14 @@ import com.Wchallenge.clients.JSONPlaceHolderClient;
 import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.domain.dtos.PhotoDto;
 import com.Wchallenge.domain.dtos.UserDto;
+import com.Wchallenge.domain.entities.SharedAlbum;
+import com.Wchallenge.services.SharedAlbumService;
 import com.Wchallenge.services.UserService;
 import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,25 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private JSONPlaceHolderClient jsonPlaceHolderClient;
+
+    @Override
+    public List<UserDto> getUsersByReadingAndWriting(List<SharedAlbum> sharedAlbums){
+        List<UserDto> userDtos = new ArrayList<UserDto>();
+        sharedAlbums.stream().forEach(sharedAlbum -> {
+            Boolean validate = true;
+            if(!CollectionUtils.isEmpty(userDtos)){
+                for(UserDto userDto : userDtos) {
+                    if(userDto.getId() == sharedAlbum.getUserId()){
+                        validate = false;
+                    }
+                }
+            }
+            if(validate){
+                userDtos.add(jsonPlaceHolderClient.findUserById(sharedAlbum.getUserId()));
+            }
+        });
+        return userDtos;
+    }
 
     public List<PhotoDto> getPhotosByIdUser(Long userId){
         List<PhotoDto> photosAllUser = getPhotosByListAlbums(getAlbumsByIdUser(userId));
