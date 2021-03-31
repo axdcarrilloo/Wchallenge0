@@ -1,11 +1,14 @@
 package com.Wchallenge.services;
 
 import com.Wchallenge.domain.dtos.SharedAlbumDto;
+import com.Wchallenge.domain.dtos.SharedAlbumPermissionsDto;
 import com.Wchallenge.domain.entities.SharedAlbum;
 
 import java.util.List;
 
 public interface SharedAlbumService {
+
+    Long updateSharedAlbumPermissions(Long id, SharedAlbumPermissionsDto sharedAlbumPermissionsDto);
 
     List<SharedAlbum> getAllSharedAlbums();
 

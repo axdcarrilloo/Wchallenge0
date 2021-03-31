@@ -1,6 +1,7 @@
 package com.Wchallenge.controllers;
 
 import com.Wchallenge.domain.dtos.SharedAlbumDto;
+import com.Wchallenge.domain.dtos.SharedAlbumPermissionsDto;
 import com.Wchallenge.domain.entities.SharedAlbum;
 import com.Wchallenge.services.SharedAlbumService;
 import com.Wchallenge.utils.Route;
@@ -18,6 +19,12 @@ public class SharedAlbumController {
 
     @Autowired
     private SharedAlbumService sharedAlbumService;
+
+    @PutMapping(Route.UPDATE_PERMISSIONS)
+    public ResponseEntity<Long> updateSharedAlbumPermissions(@PathVariable Long id,
+                                                             @RequestBody SharedAlbumPermissionsDto sharedAlbumPermissionsDto){
+        return new ResponseEntity<Long>(sharedAlbumService.updateSharedAlbumPermissions(id, sharedAlbumPermissionsDto), HttpStatus.OK);
+    }
 
     @GetMapping(Route.GETALL)
     public ResponseEntity<List<SharedAlbum>> getAllSharedAlbums(){

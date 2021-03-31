@@ -3,6 +3,7 @@ package com.Wchallenge.services.impl;
 import com.Wchallenge.assemblers.SharedAlbumAssembler;
 import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.domain.dtos.SharedAlbumDto;
+import com.Wchallenge.domain.dtos.SharedAlbumPermissionsDto;
 import com.Wchallenge.domain.dtos.UserDto;
 import com.Wchallenge.domain.entities.SharedAlbum;
 import com.Wchallenge.repositories.SharedAlbumRepository;
@@ -28,6 +29,21 @@ public class SharedAlbumServiceImpl implements SharedAlbumService {
 
     @Autowired
     private UserService userService;
+
+    @Override
+    public Long updateSharedAlbumPermissions(Long id, SharedAlbumPermissionsDto sharedAlbumPermissionsDto){
+        Long result = 0L;
+        if(Objects.nonNull(getSharedAlbumById(id))){
+            sharedAlbumRepository.updateSharedAlbumPermissions(id, sharedAlbumPermissionsDto.getReading(),
+                    sharedAlbumPermissionsDto.getWriting());
+            result = 1L;
+        }
+        return result;
+    }
+
+    public SharedAlbum getSharedAlbumById(Long id){
+        return sharedAlbumRepository.findById(id).get();
+    }
 
     @Override
     public List<SharedAlbum> getAllSharedAlbums(){
