@@ -7,13 +7,15 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
-public class PostDto {
+public class CommentDto {
 
     private Long id;
 
-    private Long userId;
+    private Long postId;
 
-    private String title;
+    private String name;
+
+    private String email;
 
     private String body;
 }

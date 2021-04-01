@@ -1,7 +1,7 @@
 package com.Wchallenge.controllers;
 
-import com.Wchallenge.domain.dtos.PostDto;
-import com.Wchallenge.services.PostService;
+import com.Wchallenge.domain.dtos.CommentDto;
+import com.Wchallenge.services.CommentService;
 import com.Wchallenge.utils.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = Route.BASE + Route.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-public class PostController {
+@RequestMapping(value = Route.BASE + Route.COMMENT, produces = MediaType.APPLICATION_JSON_VALUE)
+public class CommentController {
 
     @Autowired
-    private PostService postService;
+    private CommentService commentService;
 
     @GetMapping(value = Route.GETALL)
-    public ResponseEntity<List<PostDto>> getAllPosts(){
-        return new ResponseEntity<List<PostDto>>(postService.getAllPosts(), HttpStatus.OK);
+    public ResponseEntity<List<CommentDto>> getAllComments(){
+        return new ResponseEntity<List<CommentDto>>(commentService.getAllComments(), HttpStatus.OK);
     }
 
 }
