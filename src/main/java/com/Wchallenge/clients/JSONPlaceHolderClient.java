@@ -2,6 +2,7 @@ package com.Wchallenge.clients;
 
 import com.Wchallenge.domain.dtos.AlbumDto;
 import com.Wchallenge.domain.dtos.PhotoDto;
+import com.Wchallenge.domain.dtos.PostDto;
 import com.Wchallenge.domain.dtos.UserDto;
 import com.Wchallenge.utils.Route;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -12,6 +13,9 @@ import java.util.List;
 
 @FeignClient(name = "${feign.client.jsonplaceholder.name}", url = "${feign.client.jsonplaceholder.url}")
 public interface JSONPlaceHolderClient {
+
+    @GetMapping(value = Route.POSTS_CLIENT)
+    List<PostDto> findAllPosts();
 
     @GetMapping(value = Route.AlBUMS_CLIENT + Route.GETBY_IDALBUM_CLIENT + Route.PHOTOS_CLIENT)
     List<PhotoDto> findPhotoByIdAlbum(@PathVariable("albumId") Long albumId);

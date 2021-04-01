@@ -7,6 +7,7 @@ public class Route {
     public static final String PHOTO = "/photo";
     public static final String ALBUM = "/album";
     public static final String SHARED_ALBUM = "/sharedAlbum";
+    public static final String POST = "/post";
 
     public static final String GETALL = "/getAll";
     public static final String GETBY_ID = "/getById/{id}";
@@ -24,5 +25,6 @@ public class Route {
     public static final String GETBY_ID_CLIENT = "/{id}";
     public static final String GETBY_IDUSER_CLIENT = "/{userId}";
     public static final String GETBY_IDALBUM_CLIENT = "/{albumId}";
+    public static final String POSTS_CLIENT = "/posts";
 
 }

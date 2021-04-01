@@ -1,6 +1,5 @@
 package com.Wchallenge.controllers;
 
-import com.Wchallenge.assemblers.SharedAlbumAssembler;
 import com.Wchallenge.domain.dtos.SharedAlbumDto;
 import com.Wchallenge.domain.dtos.SharedAlbumPermissionsDto;
 import com.Wchallenge.domain.dtos.UserDto;
