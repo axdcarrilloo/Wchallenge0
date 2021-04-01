@@ -14,6 +14,9 @@ import java.util.List;
 @FeignClient(name = "${feign.client.jsonplaceholder.name}", url = "${feign.client.jsonplaceholder.url}")
 public interface JSONPlaceHolderClient {
 
+    @GetMapping(value = Route.COMMENTBY_NAME_CLIENT)
+    List<CommentDto> findCommentByName(@PathVariable("name") String name);
+
     @GetMapping(value = Route.COMMENT_CLIENT)
     List<CommentDto> findAllComments();
 

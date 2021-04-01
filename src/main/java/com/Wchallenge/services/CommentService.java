@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface CommentService {
 
+    CommentDto getCommentByName(String name);
+
     List<CommentDto> getAllComments();
 
 }

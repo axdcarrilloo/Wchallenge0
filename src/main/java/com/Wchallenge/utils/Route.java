@@ -16,6 +16,7 @@ public class Route {
     public static final String REGISTER = "/register";
     public static final String UPDATE_PERMISSIONS = "/updatePermissions/{id}";
     public static final String GETSHARED_ALBUMPERMISSIONS = "/sharedAlbumPermissions/{albumId}";
+    public static final String GETCOMMENT_BYNAME = "/commentByName/{name}";
 
 
 //    Client
@@ -26,5 +27,6 @@ public class Route {
     public static final String GETBY_IDUSER_CLIENT = "/{userId}";
     public static final String GETBY_IDALBUM_CLIENT = "/{albumId}";
     public static final String COMMENT_CLIENT = "/comments";
+    public static final String COMMENTBY_NAME_CLIENT = "/comments?name={name}";
 
 }

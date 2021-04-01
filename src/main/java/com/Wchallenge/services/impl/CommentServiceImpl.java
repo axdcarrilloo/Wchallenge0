@@ -15,6 +15,11 @@ public class CommentServiceImpl implements CommentService {
     private JSONPlaceHolderClient jsonPlaceHolderClient;
 
     @Override
+    public CommentDto getCommentByName(String name){
+        return jsonPlaceHolderClient.findCommentByName(name).get(0);
+    }
+
+    @Override
     public List<CommentDto> getAllComments() {
         return jsonPlaceHolderClient.findAllComments();
     }

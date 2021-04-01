@@ -2,12 +2,14 @@ package com.Wchallenge.domain.dtos;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @Builder
-public class CommentDto {
+public class CommentDto implements Serializable {
 
     private Long id;
 
