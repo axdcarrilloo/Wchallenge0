@@ -32,6 +32,9 @@
              "writing": true
           }
           
+ 11. Consultar todos los comentarios - GET - http://localhost:9291/Wchallenge/comment/getAll
+ 12. Consultar comentario por nombre - GET - http://localhost:9291/Wchallenge/comment/commentByName/id labore ex et quam laborum
+          
           
  
  
